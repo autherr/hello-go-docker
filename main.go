@@ -55,8 +55,14 @@ func printUser() {
 
 func main() {
 	printUser()
+
 	http.HandleFunc("/", helloWorld)
 	http.HandleFunc("/health", health)
-	fmt.Println("listening on port 3000...")
-	log.Fatal(http.ListenAndServe(":3000", nil))
+
+	port, set := os.LookupEnv("PORT")
+	if !set {
+		port = "3000"
+	}
+	fmt.Printf("listening on port %s...", port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
 }

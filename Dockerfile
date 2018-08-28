@@ -19,6 +19,4 @@ USER nonroot
 
 HEALTHCHECK --interval=5s --timeout=5s --start-period=5s --retries=3 CMD [ "/check" ]
 
-EXPOSE 3000
-
 CMD [ "/hello-go-docker" ]
