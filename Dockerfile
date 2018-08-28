@@ -13,6 +13,10 @@ LABEL name "Hello Go and Docker"
 COPY --from=build /go/bin/hello-go-docker /
 COPY --from=build /go/bin/check /
 
+COPY passwd /etc/passwd
+
+USER nonroot
+
 HEALTHCHECK --interval=5s --timeout=5s --start-period=5s --retries=3 CMD [ "/check" ]
 
 EXPOSE 3000
