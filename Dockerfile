@@ -17,4 +17,4 @@ HEALTHCHECK --interval=5s --timeout=5s --start-period=5s --retries=3 CMD [ "/che
 
 EXPOSE 3000
 
-ENTRYPOINT [ "/hello-go-docker" ]
+CMD [ "/hello-go-docker" ]
